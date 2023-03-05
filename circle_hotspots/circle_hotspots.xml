@@ -41,7 +41,14 @@
 		onover="select_hs(get(name));"
         onout=""
         onout.desktop="select_hs();"
-        onclick2="loadscene(get(name),null,MERGE,get(skin_settings.loadscene_blend));"
+        onclick2="
+            /* showlog(); */
+            trace(hotspot[get(name)].linkedscene_lookat); 
+            txtsplit(hotspot[get(name)].linkedscene_lookat, ',', lookat_h, lookat_v, lookat_fov);
+            trace('lookat_h=',get(lookat_h), ' lookat_v=',get(lookat_v), ' lookat_fov=',get(lookat_fov));
+            loadscene(get(name),null,MERGE,get(skin_settings.loadscene_blend));
+            lookat(get(lookat_h), get(lookat_v), get(lookat_fov));
+                "
 		onclick="if(name != @selected_hs,
 					select_hs(get(name));
 					looktohotspot(get(name),get(view.fov));
@@ -49,12 +56,12 @@
 					set(enabled,false);
                     select_hs();
 					lookto(get(hotspot[get(name)].ath),get(hotspot[get(name)].atv),get(view.fovmin),smooth(100,-100,120),true,false);
-                    WAIT();                 
+                    /* WAIT(); */
                     onclick2());"
 		onclick.desktop="
 					set(enabled,false);
 					lookto(get(hotspot[get(name)].ath),get(hotspot[get(name)].atv),get(view.fovmin),smooth(100,-100,120),true,false);
-                    WAIT();
+                    /* WAIT(); */
                     onclick2();"/>
     
     <!-- Hidden Circle Thumbs Style, the one user sees when hotspot is activated -->    
