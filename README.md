@@ -1,0 +1,1 @@
+# krpano-circle-hotspots-plugin-plus
