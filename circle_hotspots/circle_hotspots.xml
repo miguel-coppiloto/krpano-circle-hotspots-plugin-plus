@@ -43,7 +43,7 @@
         onout.desktop="select_hs();"
         onclick2="
             /* showlog(); */
-            trace(hotspot[get(name)].linkedscene_lookat); 
+            /* trace(hotspot[get(name)].linkedscene_lookat); */
             txtsplit(hotspot[get(name)].linkedscene_lookat, ',', lookat_h, lookat_v, lookat_fov);
             trace('lookat_h=',get(lookat_h), ' lookat_v=',get(lookat_v), ' lookat_fov=',get(lookat_fov));
             loadscene(get(name),null,MERGE,get(skin_settings.loadscene_blend));
